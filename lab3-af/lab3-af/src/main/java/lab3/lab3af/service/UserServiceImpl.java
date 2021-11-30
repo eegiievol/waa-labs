@@ -54,8 +54,6 @@ public class UserServiceImpl implements UserService {
         for (User u: iterable){
             String names[] = {u.getFname(), u.getLname()};
             basics.add(names);
-            users.add(u);
-
         }
         return basics;
     }
