@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/users")
 @RestController
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @PostMapping("/users/add")
+    @PostMapping("/add")
     public void save(@RequestBody User u){
         userService.save(u);
     }
@@ -24,9 +25,19 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/users/basic")
+    @GetMapping("/basic")
     public List<String[]> getAllNames(){
         return userService.getBasic();
+    }
+
+    @DeleteMapping("/del/{id}")
+    public void delete(@PathVariable String id){
+        userService.delete(id);
+    }
+
+    @PutMapping("/update")
+    public void update(@RequestBody User u){
+        userService.update(u);
     }
 
 

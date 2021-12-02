@@ -11,4 +11,8 @@ public interface UserService {
 
     public List<String[]> getBasic();
 
+    public void delete(String id);
+
+    public void update(User u);
+
 }
